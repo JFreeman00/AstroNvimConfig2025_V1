@@ -9,7 +9,7 @@ return {
       changedelete = { text = "~", texthl = "GitSignsChange" },
       untracked = { text = "┆", texthl = "GitSignsAdd" },
     },
-    numhl = false,
+    numhl = true,
     linehl = false,
     word_diff = false,
   },

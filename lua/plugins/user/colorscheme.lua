@@ -5,7 +5,7 @@ return {
   priority = 1000, -- Ensure it loads before other plugins
   config = function()
     require("onedarkpro").setup {
-      theme = "onedark",
+      theme = "onedark", --onedark, onelight, onedark_vivid, onedark_dark
       options = {
         transparency = false,
         terminal_colors = true,
