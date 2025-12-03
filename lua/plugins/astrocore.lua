@@ -90,6 +90,8 @@ return {
         splitbelow = true,
 
         updatetime = 350,
+        endofline = false,
+        fixendofline = false,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
