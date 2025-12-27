@@ -28,34 +28,42 @@ return {
           event = { "InsertLeave", "BufEnter" },
           desc = "Refresh codelens (buffer)",
           callback = function(args)
-            if require("astrolsp").config.features.codelens then
-              vim.lsp.codelens.refresh { bufnr = args.buf }
-            end
+            if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
           end,
         },
       },
       lsp_hover_diagnostics = {
         {
-          event = "CursorHold",
-          desc = "Show hover info or diagnostics on cursor hold",
-          callback = function()
-            local hover_ok, _ = pcall(vim.lsp.buf.hover)
-            if not hover_ok then
-              local opts = {
-                focusable = false,
-                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-                border = "rounded",
-                source = "always",
-                prefix = " ",
-                scope = "cursor",
-              }
-              vim.diagnostic.open_float(nil, opts)
-            end
-          end,
+        event = "CursorHold",
+        desc = "Show diagnostics on error, otherwise hover",
+        callback = function()
+          local bufnr = 0
+          local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+
+          -- Hämta ENDAST errors på aktuell rad
+          local errors = vim.diagnostic.get(bufnr, {
+            lnum = line,
+            severity = vim.diagnostic.severity.ERROR,
+          })
+
+          if #errors > 0 then
+            -- Visa error diagnostic
+            vim.diagnostic.open_float(nil, {
+              focusable = false,
+              close_events = { "CursorMoved", "InsertEnter", "BufLeave" },
+              border = "rounded",
+              source = "always",
+              scope = "cursor",
+            })
+          else
+            -- Annars: visa hover (metod-signatur, returtyp, docs)
+            vim.lsp.buf.hover()
+          end
+        end,
         },
       },
     },
-   -- Key mappings for LSP
+    -- Key mappings for LSP
     mappings = {
       n = {
         gD = {
@@ -80,6 +88,18 @@ return {
           desc = "Show hover (function details)",
           cond = "textDocument/hover",
         },
+        ["<Leader>ld"] = {
+            function()
+              vim.diagnostic.open_float(nil, {
+                focusable = true,
+                border = "rounded",
+                source = "always",
+                scope = "cursor",
+              })
+            end,
+            desc = "Show diagnostics (persistent)",
+          },
+        },
       },
       i = {
         ["<C-k>"] = {
@@ -88,7 +108,8 @@ return {
           cond = "textDocument/signatureHelp",
         },
       },
-    },
+      
+   
     -- Custom on_attach function
     on_attach = function(client, bufnr)
       -- Optional: disable semanticTokensProvider for all clients
