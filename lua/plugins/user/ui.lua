@@ -1,5 +1,21 @@
 -- ~/.config/nvim/lua/plugins/ui.lua
 return {
+-- Transparent bakgrund
+  {
+    "AstroNvim/astroui",
+    opts = {
+      highlights = {
+        init = {
+          Normal        = { bg = "NONE" },
+          NormalNC      = { bg = "NONE" },
+          NormalFloat   = { bg = "NONE" },
+          FloatBorder   = { bg = "NONE" },
+          SignColumn    = { bg = "NONE" },
+          WinSeparator  = { bg = "NONE" },
+        },
+      },
+    },
+  },
   -- Inaktivera Heirline helt
   { "rebelot/heirline.nvim", enabled = false },
 
