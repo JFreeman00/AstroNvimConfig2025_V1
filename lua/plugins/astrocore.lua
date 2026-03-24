@@ -92,6 +92,17 @@ return {
         updatetime = 350,
         endofline = false,
         fixendofline = false,
+        
+        -- Removed the fold column to the left
+        foldcolumn = "2",
+        foldlevel = 99,
+        foldlevelstart = 99,
+        foldenable = true,
+        fillchars = {
+            foldopen = "▾",
+            foldclose = "▸",
+            fold = " ",
+        },
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

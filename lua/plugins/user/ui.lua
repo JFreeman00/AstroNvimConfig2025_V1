@@ -12,6 +12,15 @@ return {
           FloatBorder   = { bg = "NONE" },
           SignColumn    = { bg = "NONE" },
           WinSeparator  = { bg = "NONE" },
+          LineNr        = { bg = "NONE" },
+          LineNrAbove   = { bg = "NONE" },
+          LineNrBelow   = { bg = "NONE" },
+          DiagnosticSignError = { bg = "NONE" },
+          DiagnosticSignWarn  = { bg = "NONE" },
+          DiagnosticSignInfo  = { bg = "NONE" },
+          DiagnosticSignHint  = { bg = "NONE" },
+          NeoTreeNormal      = { bg = "NONE" },  -- när fokus är i neo-tree
+          NeoTreeNormalNC    = { bg = "NONE" },  -- när fokus är någon annanstans
         },
       },
     },
