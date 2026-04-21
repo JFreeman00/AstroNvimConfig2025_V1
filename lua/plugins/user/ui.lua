@@ -1,30 +1,31 @@
 -- ~/.config/nvim/lua/plugins/ui.lua
 return {
 -- Transparent bakgrund
-  {
-    "AstroNvim/astroui",
-    opts = {
-      highlights = {
-        init = {
-          Normal        = { bg = "NONE" },
-          NormalNC      = { bg = "NONE" },
-          NormalFloat   = { bg = "NONE" },
-          FloatBorder   = { bg = "NONE" },
-          SignColumn    = { bg = "NONE" },
-          WinSeparator  = { bg = "NONE" },
-          LineNr        = { bg = "NONE" },
-          LineNrAbove   = { bg = "NONE" },
-          LineNrBelow   = { bg = "NONE" },
-          DiagnosticSignError = { bg = "NONE" },
-          DiagnosticSignWarn  = { bg = "NONE" },
-          DiagnosticSignInfo  = { bg = "NONE" },
-          DiagnosticSignHint  = { bg = "NONE" },
-          NeoTreeNormal      = { bg = "NONE" },  -- när fokus är i neo-tree
-          NeoTreeNormalNC    = { bg = "NONE" },  -- när fokus är någon annanstans
-        },
-      },
-    },
-  },
+
+  --{
+    --"AstroNvim/astroui",
+    --opts = {
+      --highlights = {
+        --init = {
+          --Normal        = { bg = "NONE" },
+          --NormalNC      = { bg = "NONE" },
+          --NormalFloat   = { bg = "NONE" },
+          --FloatBorder   = { bg = "NONE" },
+          --SignColumn    = { bg = "NONE" },
+          --WinSeparator  = { bg = "NONE" },
+          --LineNr        = { bg = "NONE" },
+          --LineNrAbove   = { bg = "NONE" },
+          --LineNrBelow   = { bg = "NONE" },
+          --DiagnosticSignError = { bg = "NONE" },
+          --DiagnosticSignWarn  = { bg = "NONE" },
+          --DiagnosticSignInfo  = { bg = "NONE" },
+          --DiagnosticSignHint  = { bg = "NONE" },
+          --NeoTreeNormal      = { bg = "NONE" },  -- när fokus är i neo-tree
+          --NeoTreeNormalNC    = { bg = "NONE" },  -- när fokus är någon annanstans
+        --},
+      --},
+    --},
+  --},
   -- Inaktivera Heirline helt
   { "rebelot/heirline.nvim", enabled = false },
 
